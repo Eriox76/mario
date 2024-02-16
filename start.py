@@ -15,9 +15,16 @@ mario = pygame.image.load("./assets/img/mario.png").convert_alpha()
 #importer le son 
 
 sound= pygame.mixer.Sound("./assets/audio/TRNHorn_Avertisseur sonore de train 2 (ID 2846)_LS.mp3")
+soundead= pygame.mixer.Sound("assets/audio/Too Bad! - Super Mario Sunshine Soundtrack.mp3")
 def mario_collision (left, top):
+   global mario, mario_rect
    print(f"position perso left: {left}")
    print(f"position perso top : {top}")
+   if (left<50 and top<70) :
+      print("Mario est mort")
+      mario=pygame.image.load("assets/img/mario_mort.webp").convert_alpha()
+      soundead.play()
+
 perso_rect = perso.get_rect()
 perso_rect.topleft = (320,240)
 mario_rect = mario.get_rect()
